@@ -2,19 +2,31 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class CharacterManager : MonoBehaviour
+abstract public class CharacterManager : MonoBehaviour
 {
     public Vector3[] spawnPoints;
-    public float tempSpeed;
     public  string collisionName;
 
+    public float moveSpeed;
+    public int healthAmount;
+    public float attackSpeed;
+
+    protected IEnumerator attackCoroutine;
+    GameObject collisionGameobject;
+
     WaitForSeconds waitTime = new WaitForSeconds(0.5f);
+
+    protected void Awake()
+    {
+        attackCoroutine = Attack();
+    }
 
     protected void OnTriggerEnter2D(Collider2D collision)
     {
         if(collision.tag == collisionName)
         {
             Debug.Log(collisionName + " struck");
+            collisionGameobject = collision.gameObject;
         }
     }
 
@@ -26,7 +38,7 @@ public class CharacterManager : MonoBehaviour
 
         while (true)
         {
-            transform.position = Vector3.MoveTowards(transform.position, targetSpawnPoint, tempSpeed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, targetSpawnPoint, moveSpeed * Time.deltaTime);
 
             if (transform.position == targetSpawnPoint)
             {
@@ -37,4 +49,16 @@ public class CharacterManager : MonoBehaviour
             yield return null;
         }
     }
+
+    protected IEnumerator Attack()
+    {
+        while (true)
+        {
+            Debug.Log("Attack!! " + collisionName);
+            Hit(1);
+            yield return waitTime;
+        }
+    }
+
+    abstract protected void Hit(int damage);
 }

@@ -23,6 +23,8 @@ public class GameManager : MonoBehaviour
     public GameObject winningScreen;
     public int score;
 
+    public GameObject[] prefabTroops;
+
     void Start()
     {
 
@@ -31,5 +33,13 @@ public class GameManager : MonoBehaviour
     void Update()
     {
 
+    }
+
+    public void OnObejctButtonDown()
+    {
+        for(int i = 0; i < prefabTroops.Length; i++)
+        {
+            Instantiate(prefabTroops[i], prefabTroops[i].transform.position, Quaternion.identity);
+        }
     }
 }

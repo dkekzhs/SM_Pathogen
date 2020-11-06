@@ -34,4 +34,12 @@ public class GameBtnManager : MonoBehaviour
     {
         playerMovement.RightMove = false;
     }
+    public void BulletBtnUp()
+    {
+        playerMovement.BulletAtt = false;
+    }
+    public void BulletBtnDwon()
+    {
+        playerMovement.BulletAtt = true;
+    }
 }

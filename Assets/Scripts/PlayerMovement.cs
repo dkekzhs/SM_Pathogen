@@ -8,12 +8,12 @@ public class PlayerMovement : MonoBehaviour
     public bool LeftMove = false;
     public bool RightMove = false; //좌우 움직임
 
-    public int bulletCnt = 0;
+
 
     public bool BulletAtt = false; //총알발사
 
-    public float speed; //총알스피드
-    public float power; //총알파워
+
+    public float power ; //총알파워
     public float maxShotDelay; //총알딜레이
     public float curShotDelay; //총알 발사 딜레이
 
@@ -75,12 +75,7 @@ public class PlayerMovement : MonoBehaviour
                         Rigidbody2D rigid = bullet.GetComponent<Rigidbody2D>();
                         rigid.AddForce(Vector2.right * 10, ForceMode2D.Impulse);
                         curShotDelay = 0;
-                        bulletCnt++;
-                        if(bulletCnt == 5)
-                        {
-                            BulletAtt = false;
-                            bulletCnt = 0;
-                        }
+
                     }
 
                     break;

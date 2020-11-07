@@ -28,12 +28,19 @@ public class EnemyManager : CharacterManager
     }
     void OnTriggerExit2D(Collider2D collision)
     {
-        if (collision.tag.Equals(collisionName))
+        if (collision.tag.Equals(collisionName)) 
         {
             moveSpeed = 2;
             Debug.Log("Coroutine Stop!");
             StopCoroutine(attackCoroutine);
             anim.SetBool("isWalk", true);
+        }
+         if (collision.gameObject.tag == "PlayerBullet") //총알 접촉 
+        {
+            Bullet bullet = collision.gameObject.GetComponent<Bullet>();
+            Destroy(collision.gameObject);
+            Debug.Log("총알접촉");
+            Hit(1);
         }
     }
 

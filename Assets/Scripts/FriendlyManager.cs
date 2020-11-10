@@ -24,6 +24,13 @@ public class FriendlyManager : CharacterManager
             StartCoroutine(attackCoroutine);
             anim.SetBool("isWalk", false);
         }
+        if (collision.gameObject.tag == "PlayerBullet") //총알 접촉 
+        {
+            Bullet bullet = collision.gameObject.GetComponent<Bullet>();
+            Destroy(collision.gameObject);
+            Debug.Log("총알접촉");
+            Hit(1);
+        }
     }
     void OnTriggerExit2D(Collider2D collision)
     {
@@ -34,6 +41,7 @@ public class FriendlyManager : CharacterManager
             StopCoroutine(attackCoroutine);
             anim.SetBool("isWalk", true);
         }
+
     }
 
     override protected void Hit(int damage)

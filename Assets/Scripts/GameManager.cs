@@ -25,16 +25,6 @@ public class GameManager : MonoBehaviour
 
     public GameObject[] prefabTroops;
 
-    void Start()
-    {
-
-    }
-
-    void Update()
-    {
-
-    }
-
     public void OnObejctButtonDown()
     {
         for(int i = 0; i < prefabTroops.Length; i++)

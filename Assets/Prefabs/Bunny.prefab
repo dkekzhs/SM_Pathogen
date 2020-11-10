@@ -121,8 +121,8 @@ MonoBehaviour:
   - {x: -10, y: -1.5, z: 0}
   - {x: 10, y: -1.5, z: 0}
   collisionName: Friendly
-  moveSpeed: 3
-  healthAmount: 8
+  moveSpeed: 2
+  healthAmount: 12
   attackSpeed: 0
 --- !u!58 &1427057121578312592
 CircleCollider2D:

@@ -18,6 +18,7 @@ public class GameBtnManager : MonoBehaviour
     {
 
     }
+    /*
     public void LeftBtnDown()
     {
         playerMovement.LeftMove = true;
@@ -34,6 +35,7 @@ public class GameBtnManager : MonoBehaviour
     {
         playerMovement.RightMove = false;
     }
+    */
     public void BulletBtnUp()
     {
         playerMovement.BulletAtt = false;

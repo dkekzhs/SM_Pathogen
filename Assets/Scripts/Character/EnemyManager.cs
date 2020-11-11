@@ -19,7 +19,7 @@ public class EnemyManager : CharacterManager
     {
         base.OnTriggerEnter2D(collision);
 
-        if (collision.gameObject.tag == "PlayerBullet") //총알 접촉 
+        if (collision.gameObject.tag == "PlayerBullet")
         {
             Bullet bullet = collision.gameObject.GetComponent<Bullet>();
             Destroy(collision.gameObject);

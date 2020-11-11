@@ -21,6 +21,7 @@ public class GameManager : MonoBehaviour
 
     public GameObject losingScreen;
     public GameObject winningScreen;
+    public bool isInteraction;
     public int score;
 
     public GameObject[] prefabTroops;

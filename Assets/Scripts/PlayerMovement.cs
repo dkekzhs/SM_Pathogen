@@ -28,12 +28,9 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         animator = GetComponent<Animator>();
+        AudioEffectManager.Instance.BackgroundAudioClipStart(0);
     }
 
-    void Update()
-    {
-
-    }
     void FixedUpdate()
     {
         move();

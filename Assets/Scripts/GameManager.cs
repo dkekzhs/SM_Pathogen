@@ -19,18 +19,42 @@ public class GameManager : MonoBehaviour
     }
     #endregion
 
-    public GameObject losingScreen;
-    public GameObject winningScreen;
+    public GameObject GameOverScreen;
     public bool isInteraction;
     public int score;
-
     public GameObject[] prefabTroops;
 
-    public void OnObejctButtonDown()
+    bool isGameOver;
+    
+    void Start()
+    {
+        isGameOver = false;
+    }
+
+    void Update()
+    {
+        if (isGameOver)
+        {
+            Time.timeScale = 0;
+            if (Input.GetKeyDown(KeyCode.Z))
+            {
+                ScreenManager.instance.RestartScene();
+                Time.timeScale = 1;
+            }
+        }
+    }
+
+    public void OnObjectButtonDown()
     {
         for(int i = 0; i < prefabTroops.Length; i++)
         {
             Instantiate(prefabTroops[i], prefabTroops[i].transform.position, Quaternion.identity);
         }
+    }
+
+    public void GameOver()
+    {
+        GameOverScreen.SetActive(true);
+        isGameOver = true;
     }
 }

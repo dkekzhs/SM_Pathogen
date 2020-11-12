@@ -29,6 +29,13 @@ public class ScreenManager : MonoBehaviour
         StartCoroutine(AwaitLoadScene(delayTime));
     }
 
+    public void RestartScene()
+    {
+        FadeInOutTransition.instance.FadeOut();
+        AudioEffectManager.Instance.BackgroundAudioClipStop(0);
+        SceneManager.LoadScene(0);
+    }
+
     IEnumerator AwaitLoadScene(float delayTime) //allowSceneActivation는 장면이 준비된 즉시 장면이 활성화되는 것을 허용합니다.
     {
         yield return null;

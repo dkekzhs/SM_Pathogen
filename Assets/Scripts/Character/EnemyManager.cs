@@ -4,17 +4,6 @@ using UnityEngine;
 
 public class EnemyManager : CharacterManager
 {
-    protected override void Hit(int damage)
-    {
-        if (healthAmount <= 0)
-        {
-            Debug.Log("Die!!!!!");
-            Destroy(gameObject);
-        }
-        healthAmount -= damage;
-        Debug.Log(collisionName + ": " + damage);
-    }
-
     protected override void OnTriggerEnter2D(Collider2D collision)
     {
         base.OnTriggerEnter2D(collision);
@@ -26,5 +15,10 @@ public class EnemyManager : CharacterManager
             Debug.Log("총알접촉");
             Hit(1);
         }
+    }
+
+    public void DestroyGameObject()
+    {
+        gameObject.SetActive(false);
     }
 }

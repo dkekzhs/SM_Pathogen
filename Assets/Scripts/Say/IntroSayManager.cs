@@ -73,6 +73,7 @@ public class IntroSayManager : MonoBehaviour
 
     IEnumerator TypingQuestion()
     {
+        AudioEffectManager.Instance.AudioClipPlay(0);
         GameManager.Instance.isInteraction = false;
         for(int i = 0; i <listSay[sayId][sayActionIndex].question.Length; ++i)
         {
@@ -80,6 +81,7 @@ public class IntroSayManager : MonoBehaviour
             yield return waitTime;
         }
         GameManager.Instance.isInteraction = true;
+        AudioEffectManager.Instance.AudioClipStop(0);
         NextSay();
     }
 }

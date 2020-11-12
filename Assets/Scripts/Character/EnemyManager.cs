@@ -6,7 +6,7 @@ public class EnemyManager : CharacterManager
 {
     protected override void Hit(int damage)
     {
-        if(healthAmount <= 0)
+        if (healthAmount <= 0)
         {
             Debug.Log("Die!!!!!");
             Destroy(gameObject);

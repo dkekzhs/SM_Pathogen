@@ -15,3 +15,4 @@ public class FriendlyManager : CharacterManager
         Debug.Log(collisionName + ": " + damage);
     }
 }
+

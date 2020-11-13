@@ -42,7 +42,6 @@ public class IntroSayManager : MonoBehaviour
 
         if(listSay[sayId][sayActionIndex].state == EnumManager.States.NextScene)
         {
-            //다음씬으로 넘어가는 대사입니다.
             ScreenManager.instance.NextScene(1f);
             return;
         }
@@ -60,7 +59,6 @@ public class IntroSayManager : MonoBehaviour
 
             if(sayId == listSay.Count)
             {
-                //대화 데이터의 끝에 도달했을 경우
                 Debug.Log("대화 끝");
             }
         }

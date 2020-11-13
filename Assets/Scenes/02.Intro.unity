@@ -168,12 +168,6 @@ MonoBehaviour:
   isInteraction: 0
   score: 0
   prefabTroops: []
---- !u!1 &146233920 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6362490965806876535, guid: 99383a2b61f956247a9edbed59161c0a,
-    type: 3}
-  m_PrefabInstance: {fileID: 6362490965667241271}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &492200291
 GameObject:
   m_ObjectHideFlags: 0
@@ -257,12 +251,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &581317869 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 6362490966176983514, guid: 99383a2b61f956247a9edbed59161c0a,
-    type: 3}
-  m_PrefabInstance: {fileID: 6362490965667241271}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1123646800
 GameObject:
   m_ObjectHideFlags: 0
@@ -847,26 +835,6 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 6362490965717074261, guid: 99383a2b61f956247a9edbed59161c0a,
-        type: 3}
-      propertyPath: backgroundAudioEffects.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6362490965717074261, guid: 99383a2b61f956247a9edbed59161c0a,
-        type: 3}
-      propertyPath: soundEffects.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 6362490965717074261, guid: 99383a2b61f956247a9edbed59161c0a,
-        type: 3}
-      propertyPath: soundEffects.Array.data[0]
-      value: 
-      objectReference: {fileID: 581317869}
-    - target: {fileID: 6362490965717074261, guid: 99383a2b61f956247a9edbed59161c0a,
-        type: 3}
-      propertyPath: backgroundAudioEffects.Array.data[0]
-      value: 
-      objectReference: {fileID: 146233920}
     - target: {fileID: 6362490965717074262, guid: 99383a2b61f956247a9edbed59161c0a,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -926,16 +894,6 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: AudioEffectManager
-      objectReference: {fileID: 0}
-    - target: {fileID: 6362490965806876533, guid: 99383a2b61f956247a9edbed59161c0a,
-        type: 3}
-      propertyPath: m_Volume
-      value: 0.04
-      objectReference: {fileID: 0}
-    - target: {fileID: 6362490966176983512, guid: 99383a2b61f956247a9edbed59161c0a,
-        type: 3}
-      propertyPath: m_Volume
-      value: 0.15
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 99383a2b61f956247a9edbed59161c0a, type: 3}

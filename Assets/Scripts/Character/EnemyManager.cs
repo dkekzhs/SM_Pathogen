@@ -10,10 +10,17 @@ public class EnemyManager : CharacterManager
 
         if (collision.gameObject.tag == "PlayerBullet")
         {
-            Bullet bullet = collision.gameObject.GetComponent<Bullet>();
+           
             Destroy(collision.gameObject);
             Debug.Log("총알접촉");
-            Hit(1);
+            Hit(5);
+        }
+        if(collision.gameObject.tag == "BeeBullet")
+        {
+            Debug.Log("터렛 총알 맞았어요");
+            Destroy(collision.gameObject);
+            Hit(5);
+           
         }
     }
 
@@ -21,4 +28,12 @@ public class EnemyManager : CharacterManager
     {
         gameObject.SetActive(false);
     }
+
+
+
+
+
+
+    
+
 }

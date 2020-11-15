@@ -8,6 +8,8 @@ TagManager:
   - Friendly
   - BorderBullet
   - PlayerBullet
+  - BeeBullet
+  - EnemyCastle
   layers:
   - Default
   - TransparentFX

@@ -84,6 +84,7 @@ abstract public class CharacterManager : MonoBehaviour
         {
             anim.SetTrigger("onHit");
             
+            
         }
         healthAmount -= damage;
     }

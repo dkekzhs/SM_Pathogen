@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour
 {
-    public float movePower = 1f; //움직임 속도
+    public float movePower = 15f; //움직임 속도
     public float horizontalInput; //플레이어 좌우 움직임
 
     public bool BulletAtt = false; // true = 총알 발사, false = 총알 발사 중지

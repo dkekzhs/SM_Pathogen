@@ -10,6 +10,9 @@ public class EncyclopediaScriptableObject : ScriptableObject //클래스 인스�
     [Header("잠금 해제 이미지")]
     public Sprite openImage;
 
+    [Header("바이러스 종류 이름")]
+    public string virusCategory;
+
     [Header("바이러스 이름")]
     public string virusName;
     [Header("바이러스 발병 위치")]

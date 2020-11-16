@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ff7da44e7cbe6346a396f8e5f098f5c, type: 3}
   m_Name: TextVirus
   m_EditorClassIdentifier: 
-  isOpen: 0
+  isOpen: 1
   lockImage: {fileID: 21300000, guid: 4bc287cc6ec016f4099016716343e305, type: 3}
   openImage: {fileID: -6816575301262550212, guid: 201d3bacc91b8cc41a309cd1dc97d38d,
     type: 3}

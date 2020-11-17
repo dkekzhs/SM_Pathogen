@@ -17,9 +17,9 @@ public class TurretManager : MonoBehaviour
     public Vector3 targetPosition; // 도착지점
     Vector3 TargetStartDistance; //시작거리와 타겟거리 사이
 
-
+  
     public GameObject Target; // 타겟 
-
+    public GameObject BeeShotPos;
 
 
     public GameObject BeeBullet;
@@ -30,6 +30,7 @@ public class TurretManager : MonoBehaviour
         enemiesInRange = new List<GameObject>();
         anim = GetComponent<Animator>();
         anim.SetBool("Stay", false);
+        DestoryBee();
     }
 
     // Update is called once per frame
@@ -52,7 +53,7 @@ public class TurretManager : MonoBehaviour
             Debug.Log("찾았다 애너미");
             anim.SetBool("Stay", true);
             enemiesInRange.Add(collision.gameObject);
-            CloseEnemy();
+            Target = enemiesInRange[0];
 
 
         }
@@ -65,10 +66,11 @@ public class TurretManager : MonoBehaviour
             Debug.Log("사라졌다 애너미");
             anim.SetBool("Stay", false);
             enemiesInRange.Remove(collision.gameObject);
-            if (enemiesInRange.Count !=0)
+            if (enemiesInRange.Count != 0)
             {
                 CloseEnemy();
             }
+            else Target = null;
 
         }
     }
@@ -80,7 +82,7 @@ public class TurretManager : MonoBehaviour
         {
 
             
-            startPosition = transform.position;   //총알시작지점
+            startPosition = BeeShotPos.transform.position;   //총알시작지점
             targetPosition = Target.transform.position; //타켓 위치
             TargetStartDistance = targetPosition - startPosition;
 
@@ -90,7 +92,7 @@ public class TurretManager : MonoBehaviour
 
 
             curShotDelay = 0; //총알 딜레이 추가
-            maxShotDelay = 0.3f; //maxshotdelay로 총알 딜레이 추가
+            maxShotDelay = 0.8f; //maxshotdelay로 총알 딜레이 추가
         }
 
     }
@@ -101,7 +103,7 @@ public class TurretManager : MonoBehaviour
 
     public void CloseEnemy() //가까운 적 떄리기
     {
-        float maxDistance = 10f ;
+        float maxDistance = 100f ;
  
         int selectedIndex = -1;
         for (int i = 0; i < enemiesInRange.Count; i++)
@@ -115,5 +117,9 @@ public class TurretManager : MonoBehaviour
             }
 
         }
+    }
+    void DestoryBee()
+    {
+        Destroy(gameObject, 5f);
     }
 }

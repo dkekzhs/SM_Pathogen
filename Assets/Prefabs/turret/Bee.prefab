@@ -161,7 +161,7 @@ SpriteRenderer:
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
+  m_Size: {x: 2.5, y: 2.5}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 0
@@ -203,10 +203,13 @@ MonoBehaviour:
   speed: 0.5
   maxShotDelay: 0.8
   curShotDelay: 0
+  destoryTime: 0
   startPosition: {x: 0, y: 0, z: 0}
   targetPosition: {x: 0, y: 0, z: 0}
   Target: {fileID: 0}
   BeeShotPos: {fileID: 867024786048303862}
+  deathParticle: {fileID: 4531779421429122232, guid: fe4cba22e2a16e244be235cd754c8edd,
+    type: 3}
   BeeBullet: {fileID: 2638831623037175382, guid: 6e2ab0f1421e9de4db26f3734b720b90,
     type: 3}
 --- !u!58 &3272725970846054616

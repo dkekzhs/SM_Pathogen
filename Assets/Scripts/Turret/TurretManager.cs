@@ -12,14 +12,19 @@ public class TurretManager : MonoBehaviour
     public float speed = 1f; //총알이 얼마나 빠른지
     public float maxShotDelay; //총알딜레이
     public float curShotDelay; //총알 발사 딜레이
+    public float destoryTime;
+
+
 
     public Vector3 startPosition; //총알 시작지점 
     public Vector3 targetPosition; // 도착지점
     Vector3 TargetStartDistance; //시작거리와 타겟거리 사이
 
-  
+
     public GameObject Target; // 타겟 
-    public GameObject BeeShotPos;
+    public GameObject BeeShotPos; // 벌 총 위치
+
+    public GameObject deathParticle; //사라짐 파티클
 
 
     public GameObject BeeBullet;
@@ -30,7 +35,8 @@ public class TurretManager : MonoBehaviour
         enemiesInRange = new List<GameObject>();
         anim = GetComponent<Animator>();
         anim.SetBool("Stay", false);
-        DestoryBee();
+        Invoke("DestoryBee", 5f);
+
     }
 
     // Update is called once per frame
@@ -80,8 +86,6 @@ public class TurretManager : MonoBehaviour
             return;
         if (Target != null)
         {
-
-            
             startPosition = BeeShotPos.transform.position;   //총알시작지점
             targetPosition = new Vector2(Target.transform.position.x + 1.5f, Target.transform.position.y); //타켓 위치
             TargetStartDistance = (targetPosition - startPosition).normalized;
@@ -89,7 +93,6 @@ public class TurretManager : MonoBehaviour
             GameObject bullet = Instantiate(BeeBullet, startPosition, transform.rotation); //총알 오브젝트 생성
             Rigidbody2D rigid = bullet.GetComponent<Rigidbody2D>();  //총알 바디
             rigid.AddForce(TargetStartDistance * speed, ForceMode2D.Impulse);
-
 
             curShotDelay = 0; //총알 딜레이 추가
             maxShotDelay = 0.8f; //maxshotdelay로 총알 딜레이 추가
@@ -120,6 +123,9 @@ public class TurretManager : MonoBehaviour
     }
     void DestoryBee()
     {
-        Destroy(gameObject, 5f);
+            Destroy(gameObject);
+            Instantiate(deathParticle, transform.position, transform.rotation);
     }
+
+
 }

@@ -26,7 +26,7 @@ public class EnemyManager : CharacterManager
 
     public void DestroyGameObject()
     {
-        gameObject.SetActive(false);
+        Destroy(this.gameObject);
     }
 
 

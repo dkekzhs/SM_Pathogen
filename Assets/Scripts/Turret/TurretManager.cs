@@ -83,8 +83,8 @@ public class TurretManager : MonoBehaviour
 
             
             startPosition = BeeShotPos.transform.position;   //총알시작지점
-            targetPosition = Target.transform.position; //타켓 위치
-            TargetStartDistance = targetPosition - startPosition;
+            targetPosition = new Vector2(Target.transform.position.x + 1.5f, Target.transform.position.y); //타켓 위치
+            TargetStartDistance = (targetPosition - startPosition).normalized;
 
             GameObject bullet = Instantiate(BeeBullet, startPosition, transform.rotation); //총알 오브젝트 생성
             Rigidbody2D rigid = bullet.GetComponent<Rigidbody2D>();  //총알 바디

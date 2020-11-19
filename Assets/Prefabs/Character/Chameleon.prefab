@@ -133,6 +133,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 94b00cf9c5b470c45a2e0acf80976262, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  deathParticle: {fileID: 7932752716892604031, guid: 94fec38f8860bd545b1996030b4b2323,
+    type: 3}
   spawnPoints:
   - {x: 10, y: -1.5, z: 0}
   - {x: -10, y: -1.5, z: 0}

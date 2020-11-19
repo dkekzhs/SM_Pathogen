@@ -4,6 +4,8 @@ using UnityEngine;
 
 abstract public class CharacterManager : MonoBehaviour
 {
+    public GameObject deathParticle;
+
     public Vector3[] spawnPoints;
     public  string collisionName;
 
@@ -12,12 +14,15 @@ abstract public class CharacterManager : MonoBehaviour
     public float attackPower;
 
     protected Animator anim;
+    protected int deadScore;
     protected IEnumerator attackCoroutine;
+    protected bool isDead;
 
     WaitForSeconds waitTime = new WaitForSeconds(0.5f);
 
     protected void Awake()
     {
+        isDead = false;
         attackCoroutine = Attack();
         anim = GetComponent<Animator>();
     }
@@ -25,6 +30,11 @@ abstract public class CharacterManager : MonoBehaviour
     void Start()
     {
         StartCoroutine(FollowSpawnPoints());
+    }
+
+    protected void AddScore()
+    {
+        GameManager.Instance.score += deadScore;
     }
 
     protected virtual void OnTriggerEnter2D(Collider2D collision)
@@ -69,22 +79,22 @@ abstract public class CharacterManager : MonoBehaviour
     {
         while (true)
         {
-            if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Attack"))
+            if (!anim.GetCurrentAnimatorStateInfo(0).IsName("Attack") && !isDead)
             {
                 anim.SetTrigger("onAttack");
+                Hit(1);
             }
-            Hit(1);
             yield return waitTime;
         }
     }
 
     protected virtual void Hit(int damage)
     {
-        if (healthAmount <= 0)
+        if (healthAmount <= 0 && !isDead)
         {
-            anim.SetTrigger("onHit");
-            
-            
+            Instantiate(deathParticle, transform.position, transform.rotation);
+            Destroy(this.gameObject);
+            isDead = true;
         }
         healthAmount -= damage;
     }

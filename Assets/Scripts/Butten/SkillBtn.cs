@@ -14,8 +14,6 @@ public class SkillBtn : MonoBehaviour
     void start()
     {
         SkillFitter.fillAmount = 0; //0이면 투명한 상태
-
-
     }
 
     public void UseSkill() //스킬사용
@@ -46,11 +44,10 @@ public class SkillBtn : MonoBehaviour
 
     void SpawnBee()
     {
-        int randomX = Random.Range(-10, 2);
+        int randomX = Random.Range(-6, 2);
         float randomY = Random.Range(1f, 3f);
         RandomSpawn = new Vector3(randomX, randomY, 0);
         Instantiate(Bee, RandomSpawn, transform.rotation);
-        
     }
 
 }

@@ -7,7 +7,7 @@ abstract public class CharacterManager : MonoBehaviour
     public GameObject deathParticle;
 
     public Vector3[] spawnPoints;
-    public  string collisionName;
+    public string collisionName;
 
     public float moveSpeed; // 캐릭터의 이동속도를 설정해주는 변수입니다.
     public int healthAmount; // 캐릭터의 

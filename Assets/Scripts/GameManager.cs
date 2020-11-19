@@ -36,6 +36,7 @@ public class GameManager : MonoBehaviour
     
     void Start()
     {
+        nextStageTime = 2;
         isGameOver = false;
         isNextStage = false;
     }

@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameManager : MonoBehaviour
 {
@@ -20,15 +21,23 @@ public class GameManager : MonoBehaviour
     #endregion
 
     public GameObject GameOverScreen;
+    public Text scoreText;
+    public Text stageText;
     public bool isInteraction;
+
     public int score;
-    public GameObject[] prefabTroops;
+    public int stage;
 
     bool isGameOver;
+    bool isNextStage;
+
+    float currentStageTime;
+    float nextStageTime;
     
     void Start()
     {
         isGameOver = false;
+        isNextStage = false;
     }
 
     void Update()
@@ -42,13 +51,34 @@ public class GameManager : MonoBehaviour
                 Time.timeScale = 1;
             }
         }
+
+        SetScoreAndStageText();
+        StartStage();
     }
 
-    public void OnObjectButtonDown()
+    void SetScoreAndStageText()
     {
-        for(int i = 0; i < prefabTroops.Length; i++)
+        scoreText.text = string.Format("{0:#,###}", score);
+        stageText.text = string.Format("{0}탄", stage);
+    }
+
+    void StartStage()
+    {
+        currentStageTime += Time.deltaTime;
+
+        if (currentStageTime < nextStageTime)
         {
-            Instantiate(prefabTroops[i], prefabTroops[i].transform.position, Quaternion.identity);
+            isNextStage = true;
+            return;
+        }
+
+        if (isNextStage)
+        {
+            Spawner.Instance.OnSpawnEnemy();
+            stage++;
+            nextStageTime += stage;
+            isNextStage = false;
+            currentStageTime = 0;
         }
     }
 

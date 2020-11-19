@@ -94,6 +94,7 @@ abstract public class CharacterManager : MonoBehaviour
         {
             Instantiate(deathParticle, transform.position, transform.rotation);
             Destroy(this.gameObject);
+            AddScore();
             isDead = true;
         }
         healthAmount -= damage;
